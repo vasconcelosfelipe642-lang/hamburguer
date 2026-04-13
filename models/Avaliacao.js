@@ -7,7 +7,7 @@ export default class Avaliacao extends Model {
       as: 'pedido'
     });
   }
-}
+}route
 
 Avaliacao.init(
   {
