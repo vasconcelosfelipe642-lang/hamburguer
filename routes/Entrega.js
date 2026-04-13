@@ -1,3 +1,2 @@
 import { Router } from "express";
-
-import [Router]
+import router from "./Avaliacaoroute";

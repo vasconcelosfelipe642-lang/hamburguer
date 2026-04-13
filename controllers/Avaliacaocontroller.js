@@ -22,7 +22,7 @@ const AvaliacaoController = {
     try {
       const avaliacoes = await Avaliacao.findAll({ include: ['pedido'] });
       if (avaliacoes.length === 0) {
-        throw new Error('Não há avaliações');
+        return res.status(404).json({ error: 'Não há avaliações' });
       }
       res.status(200).json(avaliacoes);
     } catch (error) {
