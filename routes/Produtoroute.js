@@ -8,4 +8,5 @@ router.get('/', ProdutoController.findAll);
 router.get('/:id', ProdutoController.findById);
 router.put('/:id', ProdutoController.update);
 router.delete('/:id', ProdutoController.delete);
+
 export default router;

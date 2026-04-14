@@ -1,4 +1,4 @@
-import {Model, Datatypes} from 'sequelize';
+import { Model, DataTypes } from 'sequelize';
 import sequelize from './Database.js';
 export default class Avaliacao extends Model {
   static associate(models) {
@@ -7,7 +7,7 @@ export default class Avaliacao extends Model {
       as: 'pedido'
     });
   }
-}route
+}
 
 Avaliacao.init(
   {

@@ -7,4 +7,6 @@ router.post('/', AvaliacaoController.create);
 router.get('/', AvaliacaoController.findAll);
 router.get('/:id', AvaliacaoController.findById);
 router.delete('/:id', AvaliacaoController.delete);
+router.put('/:id', AvaliacaoController.update);
+
 export default router;
