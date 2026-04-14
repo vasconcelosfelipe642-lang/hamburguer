@@ -20,7 +20,7 @@ const AvaliacaoController = {
 
   findAll: async (req, res) => {
     try {
-      const avaliacoes = await Avaliacao.findAll({ include: ['pedido'] });
+      const avaliacoes = await Avaliacao.findAll();
       if (avaliacoes.length === 0) {
         return res.status(404).json({ error: 'Não há avaliações' });
       }
@@ -32,7 +32,7 @@ const AvaliacaoController = {
 
   findById: async (req, res) => {
     try {
-      const avaliacao = await Avaliacao.findByPk(req.params.id, { include: ['pedido'] });
+      const avaliacao = await Avaliacao.findByPk(req.params.id);
       if (!avaliacao) {
         return res.status(404).json({ error: 'Avaliação não encontrada' });
       }
