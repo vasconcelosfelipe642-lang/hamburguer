@@ -1,4 +1,4 @@
-import sequelize from "./Database";
+import sequelize from "./Database.js";
 import { DataTypes, Model } from "sequelize";
 
 export default class Entrega extends Model {

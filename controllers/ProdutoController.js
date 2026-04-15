@@ -11,7 +11,9 @@ export const criar = async (req, res) => {
 
 export const listar = async (req, res) => {
     try {
-        const produtos = await Produto.findAll();
+        const produtos = await Produto.findAll({
+            include: [{ association: 'categoria' }]
+        });
         res.status(200).json(produtos);
     } catch (error) {
         res.status(500).json({ erro: error.message });
@@ -20,7 +22,9 @@ export const listar = async (req, res) => {
 
 export const obterPorId = async (req, res) => {
     try {
-        const produto = await Produto.findByPk(req.params.id);
+        const produto = await Produto.findByPk(req.params.id, {
+            include: [{ association: 'categoria' }]
+        });
         if (!produto) {
             return res.status(404).json({ erro: 'Produto não encontrado' });
         }

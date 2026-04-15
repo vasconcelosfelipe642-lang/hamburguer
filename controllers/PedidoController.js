@@ -55,7 +55,15 @@ const PedidoController = {
                 return res.status(404).json({ error: 'Pedido não encontrado' });
             }
             await pedido.update(req.body);
-            res.status(200).json(pedido);
+            
+            // Retornar com eager loading
+            const pedidoAtualizado = await Pedido.findByPk(req.params.id, {
+                include: [
+                    { association: 'entrega' },
+                    { association: 'avaliacao' }
+                ]
+            });
+            res.status(200).json(pedidoAtualizado);
         } catch (error) {
             res.status(500).json({ error: error.message });
         }
