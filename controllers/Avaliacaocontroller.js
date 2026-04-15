@@ -5,6 +5,12 @@ const AvaliacaoController = {
   create: async (req, res) => {
     try {
       const { pedidoId, nota, comentario } = req.body;
+
+      // Validar nota entre 1 e 5
+      if (!nota || nota < 1 || nota > 5) {
+        return res.status(400).json({ error: 'Nota deve estar entre 1 e 5' });
+      }
+
       const pedido = await Pedido.findByPk(pedidoId);
 
       if (!pedido) {
@@ -44,6 +50,11 @@ const AvaliacaoController = {
 
   update: async (req, res) => {
     try {
+      // Se estiver atualizando nota, validar entre 1 e 5
+      if (req.body.nota && (req.body.nota < 1 || req.body.nota > 5)) {
+        return res.status(400).json({ error: 'Nota deve estar entre 1 e 5' });
+      }
+
       const avaliacao = await Avaliacao.findByPk(req.params.id);
       if (!avaliacao) {
         return res.status(404).json({ error: 'Avaliação não encontrada' });
