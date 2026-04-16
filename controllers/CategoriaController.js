@@ -1,6 +1,6 @@
-import Categoria from "../models/Categoria.js";
+import Categoria from "../models/categoria.js";
 
- const CategoriaController = {
+ const categoriaController = {
   create: async (req, res) => {
     try {
       const categoria = await Categoria.create(req.body);
@@ -87,4 +87,4 @@ import Categoria from "../models/Categoria.js";
   }
 };
 
-export default CategoriaController;
+export default categoriaController;

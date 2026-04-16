@@ -1,6 +1,6 @@
-import Pedido from "../models/Pedido.js";
+import Pedido from "../models/pedido.js";
 
-const PedidoController = {
+const pedidoController = {
     create: async (req, res) => {
         try {
             const pedido = await Pedido.create(req.body);
@@ -83,4 +83,4 @@ const PedidoController = {
     }
 };
 
-export default PedidoController;
+export default pedidoController;

@@ -1,4 +1,4 @@
-import Entrega from '../models/Entrega.js';
+import Entrega from '../models/entrega.js';
 
 class EntregaController {
     async index(req, res) {

@@ -1,7 +1,7 @@
-import Avaliacao from '../models/Avaliacao.js';
-import Pedido from '../models/Pedido.js';
+import Avaliacao from '../models/avaliacao.js';
+import Pedido from '../models/pedido.js';
 
-const AvaliacaoController = {
+const avaliacaoController = {
   create: async (req, res) => {
     try {
       const { pedidoId, nota, comentario } = req.body;
@@ -82,4 +82,4 @@ const AvaliacaoController = {
   }
 };
 
-export default AvaliacaoController;
+export default avaliacaoController;
