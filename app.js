@@ -1,10 +1,10 @@
 import express from 'express';
 import './models/index.js';
 import categoriaRoutes from './routes/categoriaRoutes.js';
-import avaliacaoRoutes from './routes/Avaliacaoroute.js';
-import pedidoRoutes from './routes/Pedidoroute.js';
-import entregaRoutes from './routes/Entregaroute.js';
-import produtoRoutes from './routes/Produtoroute.js';
+import avaliacaoRoutes from './routes/avaliacaoRoute.js';
+import pedidoRoutes from './routes/pedidoRoute.js';
+import entregaRoutes from './routes/entregaRoute.js';
+import produtoRoutes from './routes/produtoRoute.js';
 const app = express();
 
 const port = 3000;

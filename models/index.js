@@ -1,8 +1,8 @@
-import Categoria from './Categoria.js';
-import Produto from './Produto.js';
-import Pedido from './Pedido.js';
-import Entrega from './Entrega.js';
-import Avaliacao from './Avaliacao.js';
+import Categoria from './categoria.js';
+import Produto from './produto.js';
+import Pedido from './pedido.js';
+import Entrega from './entrega.js';
+import Avaliacao from './avaliacao.js';
 
 const models = [Categoria, Produto, Pedido, Entrega, Avaliacao];
 
@@ -11,3 +11,4 @@ Object.values(models).forEach(model => {
     model.associate(models);
   }
 });
+export default models;
