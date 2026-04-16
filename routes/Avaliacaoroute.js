@@ -1,12 +1,11 @@
 import { Router } from 'express';
-import AvaliacaoController from '../controllers/Avaliacaocontroller.js';
+import avaliacaoController from '../controllers/avaliacaoController.js';
 
 const router = Router();
 
-router.post('/', AvaliacaoController.create);
-router.get('/', AvaliacaoController.findAll);
-router.get('/:id', AvaliacaoController.findById);
-router.delete('/:id', AvaliacaoController.delete);
-router.put('/:id', AvaliacaoController.update);
-
+router.post('/', avaliacaoController.create);
+router.get('/', avaliacaoController.findAll);
+router.get('/:id', avaliacaoController.findById);
+router.delete('/:id', avaliacaoController.delete);
+router.put('/:id', avaliacaoController.update);
 export default router;

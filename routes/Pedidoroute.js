@@ -1,11 +1,11 @@
 import { Router} from "express";
-import PedidoController from "../controllers/PedidoController.js";
+import pedidoController from "../controllers/pedidoController.js";
 
 const router = Router();
-router.post('/', PedidoController.create);
-router.get('/', PedidoController.findAll);
-router.get('/:id', PedidoController.findById);
-router.put('/:id', PedidoController.update);
-router.delete('/:id', PedidoController.delete);
+router.post('/', pedidoController.create);
+router.get('/', pedidoController.findAll);
+router.get('/:id', pedidoController.findById);
+router.put('/:id', pedidoController.update);
+router.delete('/:id', pedidoController.delete);
 
 export default router;
