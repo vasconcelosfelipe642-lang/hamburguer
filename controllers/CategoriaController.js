@@ -18,7 +18,7 @@ import Categoria from "../models/Categoria.js";
         ]
       });
       if (categorias.length === 0) {
-        throw new Error('Nenhuma categoria encontrada');
+        return res.status(404).json({ error: 'Nenhuma categoria encontrada' });
       }
       res.status(200).json(categorias);
     }catch (error) {
@@ -36,7 +36,7 @@ import Categoria from "../models/Categoria.js";
         if (categoria) {
           res.status(200).json(categoria);
         } else {
-          res.status(404).json({ error: 'Categoria nao encontrada' });
+          res.status(404).json({ error: 'Categoria não encontrada' });
         }
     }catch(error){
       res.status(500).json({ error: error.message });
@@ -47,7 +47,11 @@ import Categoria from "../models/Categoria.js";
         const categoria = await Categoria.findByPk(req.params.id);
         if (categoria) {
           await categoria.update(req.body);
-          res.status(200).json(categoria);
+          
+          const categoriaAtualizada = await Categoria.findByPk(req.params.id, {
+            include: [{ association: 'produtos' }]
+          });
+          res.status(200).json(categoriaAtualizada);
         } else {
           res.status(404).json({ error: 'Categoria nao encontrada' });
         }
