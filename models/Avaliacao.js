@@ -26,7 +26,7 @@ Avaliacao.init(
     },
     pedido_id: {
       type: DataTypes.INTEGER,
-      allowNull: false
+      allowNull: false,
     },
   },
   {

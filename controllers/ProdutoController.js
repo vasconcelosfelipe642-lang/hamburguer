@@ -9,7 +9,7 @@ export const criar = async (req, res) => {
         res.status(400).json({ erro: error.message });
     }
 };
-Association
+
 export const listar = async (req, res) => {
     try{
         const produtos = await Produto.findAll();
