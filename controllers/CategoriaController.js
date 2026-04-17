@@ -15,7 +15,7 @@ import Produto from "../models/produto.js";
     {
       const categorias = await Categoria.findAll({
         include: [
-          { model: Produto }
+          { model: Produto, as: 'produtos' }
         ]
       });
       if (categorias.length === 0) {
