@@ -10,14 +10,7 @@ export default {
         primaryKey: true,
         autoIncrement: true
       },
-      nota: {
-        type: Sequelize.INTEGER,
-        allowNull: false
-      },
-      comentario: {
-        type: Sequelize.TEXT,
-        allowNull: true
-      },
+
       data: {
         type: Sequelize.DATE,
         allowNull: false,
@@ -43,9 +36,21 @@ export default {
         type: Sequelize.DATE
       }
     });
-  },
 
+    await queryInterface.addConstraint('avaliacoes', {
+      fields: ['nota'],
+      type: 'check',
+      name: 'check_nota',
+      where: {
+        nota: {
+          [Sequelize.Op.gte]: 1,
+          [Sequelize.Op.lte]: 5
+        }
+      }
+    });
+  },
   async down(queryInterface, Sequelize) {
+    await queryInterface.sequelize.removeConstraint('avaliacoes', 'check_nota');
     await queryInterface.dropTable('avaliacoes');
   }
 };
