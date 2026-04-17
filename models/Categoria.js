@@ -5,13 +5,12 @@ export default class Categoria extends Model {
 
     static associate (models){
         Categoria.hasMany(models.Produto,{
-            foreignKey: 'categoriaId',
+            foreignKey: 'categoria_id',
             as : 'produtos'
         })
     }
 
 }
-
 Categoria.init(
   {
     id: {
@@ -29,9 +28,9 @@ Categoria.init(
   },
   {
     sequelize,
-    modelName: 'Categoria',
+    modelName: 'categoria',
     tableName: 'categorias',
-    paranoid: true,    // ativa soft delete
+    paranoid: true,    
     timestamps: true
   }
 );
