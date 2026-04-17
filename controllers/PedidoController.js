@@ -33,7 +33,8 @@ const pedidoController = {
         try {
             const pedido = await Pedido.findByPk(req.params.id, {
                 include: [
-                    { model: Entrega ,include: [ { model: Avaliacao }]}
+                    { model: Entrega, as: 'entrega' },
+                    { model: Avaliacao, as: 'avaliacao' }
                 ]
             });
 

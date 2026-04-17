@@ -31,7 +31,7 @@ import Produto from "../models/produto.js";
     try{
         const categoria = await Categoria.findByPk(req.params.id, {
           include: [
-            { model: Produto }
+            { model: Produto, as: 'produtos' }
           ]
         });
         if (categoria) {
