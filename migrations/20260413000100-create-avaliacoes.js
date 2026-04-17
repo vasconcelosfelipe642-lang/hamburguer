@@ -10,7 +10,10 @@ export default {
         primaryKey: true,
         autoIncrement: true
       },
-
+      nota: {
+        type: Sequelize.INTEGER,
+        allowNull: false
+      },
       data: {
         type: Sequelize.DATE,
         allowNull: false,
@@ -50,7 +53,6 @@ export default {
     });
   },
   async down(queryInterface, Sequelize) {
-    await queryInterface.sequelize.removeConstraint('avaliacoes', 'check_nota');
     await queryInterface.dropTable('avaliacoes');
   }
 };
