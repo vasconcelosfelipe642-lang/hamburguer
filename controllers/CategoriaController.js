@@ -1,4 +1,5 @@
 import Categoria from "../models/categoria.js";
+import Produto from "../models/produto.js";
 
  const categoriaController = {
   create: async (req, res) => {
@@ -14,7 +15,7 @@ import Categoria from "../models/categoria.js";
     {
       const categorias = await Categoria.findAll({
         include: [
-          { association: 'produtos' }
+          { model: Produto }
         ]
       });
       if (categorias.length === 0) {
@@ -30,7 +31,7 @@ import Categoria from "../models/categoria.js";
     try{
         const categoria = await Categoria.findByPk(req.params.id, {
           include: [
-            { association: 'produtos' }
+            { model: Produto }
           ]
         });
         if (categoria) {
@@ -49,7 +50,7 @@ import Categoria from "../models/categoria.js";
           await categoria.update(req.body);
           
           const categoriaAtualizada = await Categoria.findByPk(req.params.id, {
-            include: [{ association: 'produtos' }]
+            include: [{ model: Produto }]
           });
           res.status(200).json(categoriaAtualizada);
         } else {

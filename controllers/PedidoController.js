@@ -1,3 +1,4 @@
+import Entrega from "../models/entrega.js";
 import Pedido from "../models/pedido.js";
 
 const pedidoController = {
@@ -14,8 +15,8 @@ const pedidoController = {
         try {
             const pedidos = await Pedido.findAll({
                 include: [
-                    { association: 'entrega' },
-                    { association: 'avaliacao' }
+                    { model: Entrega, as: 'entrega' },
+                    { model: Avaliacao, as: 'avaliacao' }
                 ]
             });
 
@@ -33,8 +34,7 @@ const pedidoController = {
         try {
             const pedido = await Pedido.findByPk(req.params.id, {
                 include: [
-                    { association: 'entrega' },
-                    { association: 'avaliacao' }
+                    { model: Entrega ,include: [ { model: Avaliacao }]}
                 ]
             });
 
@@ -59,8 +59,8 @@ const pedidoController = {
             // Retornar com eager loading
             const pedidoAtualizado = await Pedido.findByPk(req.params.id, {
                 include: [
-                    { association: 'entrega' },
-                    { association: 'avaliacao' }
+                    { model: 'entrega' },
+                    { model: 'avaliacao' }
                 ]
             });
             res.status(200).json(pedidoAtualizado);
