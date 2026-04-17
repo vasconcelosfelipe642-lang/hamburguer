@@ -10,8 +10,13 @@ export default class Produto extends Model {
   }
 }
 Produto.init({
-  
+
   nome: { type: DataTypes.STRING, allowNull: false },
+  id: {
+    type: DataTypes.INTEGER,
+    primaryKey: true,
+    autoIncrement: true
+  },
   descricao: { type: DataTypes.TEXT },
   preco: {
     type: DataTypes.DECIMAL(10, 2),
