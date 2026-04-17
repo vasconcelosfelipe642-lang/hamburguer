@@ -1,6 +1,6 @@
 import Entrega from "../models/entrega.js";
 import Pedido from "../models/pedido.js";
-
+import Avaliacao from "../models/avaliacao.js";
 const pedidoController = {
     create: async (req, res) => {
         try {
@@ -10,7 +10,6 @@ const pedidoController = {
             res.status(500).json({ error: error.message });
         }
     },
-
     findAll: async (req, res) => {
         try {
             const pedidos = await Pedido.findAll({
