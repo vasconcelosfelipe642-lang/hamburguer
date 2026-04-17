@@ -1,4 +1,5 @@
 import Produto from '../models/produto.js';
+import Categoria from '../models/categoria.js';
 
 export const criar = async (req, res) => {
     try {
@@ -8,7 +9,7 @@ export const criar = async (req, res) => {
         res.status(400).json({ erro: error.message });
     }
 };
-
+Association
 export const listar = async (req, res) => {
     try{
         const produtos = await Produto.findAll();
@@ -22,7 +23,7 @@ export const listar = async (req, res) => {
 export const obterPorId = async (req, res) => {
     try {
         const produto = await Produto.findByPk(req.params.id, {
-            include: [{ association: 'categoria' }]
+            include: [{ model: Categoria }]
         });
         if (!produto) {
             return res.status(404).json({ erro: 'Produto não encontrado' });
