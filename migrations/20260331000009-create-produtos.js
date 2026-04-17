@@ -13,10 +13,12 @@ export default{
           autoIncrement : true
         },
         nome: { type: Sequelize.STRING, allowNull: false },
+
         descricao: { type: Sequelize.TEXT },
+        
         preco: { type: Sequelize.DECIMAL(10, 2), allowNull: false },
         disponivel: { type: Sequelize.BOOLEAN, defaultValue: true },
-        categoriaId: {
+        categoria_id: {
           type: Sequelize.INTEGER,
           references: { model: 'categorias', key: 'id' },
           onUpdate: 'CASCADE',

@@ -14,11 +14,6 @@ export default {
         type: Sequelize.INTEGER,
         allowNull: false
       },
-      data: {
-        type: Sequelize.DATE,
-        allowNull: false,
-        defaultValue: Sequelize.NOW
-      },
       pedido_id: {
         type: Sequelize.INTEGER,
         allowNull: false,
